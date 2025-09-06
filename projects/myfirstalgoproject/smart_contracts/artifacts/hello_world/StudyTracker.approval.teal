@@ -1,0 +1,163 @@
+#pragma version 10
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    intcblock 0 1
+    bytecblock "totalHours" 0x151f7c75
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    bytec_0 // "totalHours"
+    intc_0 // 0
+    app_global_put
+
+main_after_if_else@2:
+    // smart_contracts/hello_world/contract.algo.ts:3
+    // export class StudyTracker extends Contract {
+    txn NumAppArgs
+    bz main_bare_routing@10
+    pushbytess 0x61fe9d6b 0x5ccbd16c 0x82d67e96 // method "addHours(uint64)uint64", method "resetHours()string", method "getHours()uint64"
+    txna ApplicationArgs 0
+    match main_addHours_route@5 main_resetHours_route@6 main_getHours_route@7
+
+main_after_if_else@14:
+    // smart_contracts/hello_world/contract.algo.ts:3
+    // export class StudyTracker extends Contract {
+    intc_0 // 0
+    return
+
+main_getHours_route@7:
+    // smart_contracts/hello_world/contract.algo.ts:20
+    // getHours(): uint64 {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    callsub getHours
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_resetHours_route@6:
+    // smart_contracts/hello_world/contract.algo.ts:14
+    // resetHours(): string {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    callsub resetHours
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_addHours_route@5:
+    // smart_contracts/hello_world/contract.algo.ts:8
+    // addHours(hours: uint64): uint64 {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/hello_world/contract.algo.ts:3
+    // export class StudyTracker extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    // smart_contracts/hello_world/contract.algo.ts:8
+    // addHours(hours: uint64): uint64 {
+    callsub addHours
+    itob
+    bytec_1 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_bare_routing@10:
+    // smart_contracts/hello_world/contract.algo.ts:3
+    // export class StudyTracker extends Contract {
+    txn OnCompletion
+    bnz main_after_if_else@14
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_1 // 1
+    return
+
+
+// smart_contracts/hello_world/contract.algo.ts::StudyTracker.addHours(hours: uint64) -> uint64:
+addHours:
+    // smart_contracts/hello_world/contract.algo.ts:8
+    // addHours(hours: uint64): uint64 {
+    proto 1 1
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    intc_0 // 0
+    bytec_0 // "totalHours"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/hello_world/contract.algo.ts:9
+    // this.totalHours.value += hours;
+    frame_dig -1
+    +
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    bytec_0 // "totalHours"
+    // smart_contracts/hello_world/contract.algo.ts:9
+    // this.totalHours.value += hours;
+    swap
+    app_global_put
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    intc_0 // 0
+    bytec_0 // "totalHours"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/hello_world/contract.algo.ts:10
+    // return this.totalHours.value;
+    retsub
+
+
+// smart_contracts/hello_world/contract.algo.ts::StudyTracker.resetHours() -> bytes:
+resetHours:
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    bytec_0 // "totalHours"
+    // smart_contracts/hello_world/contract.algo.ts:15
+    // this.totalHours.value = 0;
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hello_world/contract.algo.ts:16
+    // return "Study hours reset successfully!";
+    pushbytes "Study hours reset successfully!"
+    retsub
+
+
+// smart_contracts/hello_world/contract.algo.ts::StudyTracker.getHours() -> uint64:
+getHours:
+    // smart_contracts/hello_world/contract.algo.ts:5
+    // totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+    intc_0 // 0
+    bytec_0 // "totalHours"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/hello_world/contract.algo.ts:21
+    // return this.totalHours.value;
+    retsub

@@ -1,0 +1,752 @@
+{
+  "version": 3,
+  "sources": [
+    "C:/Users/yugag/myfirstalgoproject/projects/myfirstalgoproject/smart_contracts/hello_world/contract.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;AAI0C;AAA4B;AAApE;AAFF;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;AAAA;;AAiBE;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AALF;;;AAAA;AAKE;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AALF;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAKE;;;AAHwC;AAAA;AAAA;AAAA;AAItC;;AAAA;AAJsC;AAItC;AAAA;AAJsC;AAAA;AAAA;AAAA;AAKtC;AALsC;AAUd;AAAxB;AACO;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAP;AAXsC;AAAA;AAAA;AAAA;AAgBtC",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1"
+    },
+    "5": {
+      "op": "bytecblock \"totalHours\" 0x151f7c75"
+    },
+    "23": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "reinterpret_bool%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bool%0#0"
+      ]
+    },
+    "25": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "28": {
+      "op": "bytec_0 // \"totalHours\"",
+      "defined_out": [
+        "\"totalHours\""
+      ],
+      "stack_out": [
+        "\"totalHours\""
+      ]
+    },
+    "29": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"totalHours\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"totalHours\"",
+        "0"
+      ]
+    },
+    "30": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "31": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "33": {
+      "op": "bz main_bare_routing@10",
+      "stack_out": []
+    },
+    "36": {
+      "op": "pushbytess 0x61fe9d6b 0x5ccbd16c 0x82d67e96 // method \"addHours(uint64)uint64\", method \"resetHours()string\", method \"getHours()uint64\"",
+      "defined_out": [
+        "Method(addHours(uint64)uint64)",
+        "Method(getHours()uint64)",
+        "Method(resetHours()string)"
+      ],
+      "stack_out": [
+        "Method(addHours(uint64)uint64)",
+        "Method(resetHours()string)",
+        "Method(getHours()uint64)"
+      ]
+    },
+    "53": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(addHours(uint64)uint64)",
+        "Method(getHours()uint64)",
+        "Method(resetHours()string)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(addHours(uint64)uint64)",
+        "Method(resetHours()string)",
+        "Method(getHours()uint64)",
+        "tmp%2#0"
+      ]
+    },
+    "56": {
+      "op": "match main_addHours_route@5 main_resetHours_route@6 main_getHours_route@7",
+      "stack_out": []
+    },
+    "64": {
+      "block": "main_after_if_else@14",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "65": {
+      "op": "return",
+      "stack_out": []
+    },
+    "66": {
+      "block": "main_getHours_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "68": {
+      "op": "!",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "69": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "70": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%16#0"
+      ]
+    },
+    "72": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "73": {
+      "callsub": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.getHours",
+      "op": "callsub getHours",
+      "defined_out": [
+        "to_encode%2#0"
+      ],
+      "stack_out": [
+        "to_encode%2#0"
+      ]
+    },
+    "76": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0"
+      ]
+    },
+    "77": {
+      "op": "bytec_1 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0",
+        "0x151f7c75"
+      ]
+    },
+    "78": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ]
+    },
+    "79": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "80": {
+      "op": "log",
+      "stack_out": []
+    },
+    "81": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "82": {
+      "op": "return",
+      "stack_out": []
+    },
+    "83": {
+      "block": "main_resetHours_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "85": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "86": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "87": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "89": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "90": {
+      "callsub": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.resetHours",
+      "op": "callsub resetHours",
+      "defined_out": [
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0"
+      ]
+    },
+    "93": {
+      "op": "dup",
+      "defined_out": [
+        "to_encode%1#0",
+        "to_encode%1#0 (copy)"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "to_encode%1#0 (copy)"
+      ]
+    },
+    "94": {
+      "op": "len",
+      "defined_out": [
+        "length%0#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "length%0#0"
+      ]
+    },
+    "95": {
+      "op": "itob",
+      "defined_out": [
+        "as_bytes%0#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "as_bytes%0#0"
+      ]
+    },
+    "96": {
+      "op": "extract 6 2",
+      "defined_out": [
+        "length_uint16%0#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "length_uint16%0#0"
+      ]
+    },
+    "99": {
+      "op": "swap",
+      "stack_out": [
+        "length_uint16%0#0",
+        "to_encode%1#0"
+      ]
+    },
+    "100": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0"
+      ]
+    },
+    "101": {
+      "op": "bytec_1 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "102": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "encoded_value%0#0"
+      ]
+    },
+    "103": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "104": {
+      "op": "log",
+      "stack_out": []
+    },
+    "105": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "106": {
+      "op": "return",
+      "stack_out": []
+    },
+    "107": {
+      "block": "main_addHours_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "109": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "110": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "111": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "113": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "114": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "117": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "118": {
+      "callsub": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.addHours",
+      "op": "callsub addHours",
+      "defined_out": [
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0"
+      ]
+    },
+    "121": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0"
+      ]
+    },
+    "122": {
+      "op": "bytec_1 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "123": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ]
+    },
+    "124": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "125": {
+      "op": "log",
+      "stack_out": []
+    },
+    "126": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "127": {
+      "op": "return",
+      "stack_out": []
+    },
+    "128": {
+      "block": "main_bare_routing@10",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "130": {
+      "op": "bnz main_after_if_else@14",
+      "stack_out": []
+    },
+    "133": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "135": {
+      "op": "!",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "136": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "137": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "138": {
+      "op": "return",
+      "stack_out": []
+    },
+    "139": {
+      "subroutine": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.addHours",
+      "params": {
+        "hours#0": "uint64"
+      },
+      "block": "addHours",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "142": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "143": {
+      "op": "bytec_0 // \"totalHours\"",
+      "defined_out": [
+        "\"totalHours\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"totalHours\""
+      ]
+    },
+    "144": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "145": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "146": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "hours#0 (copy)",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "hours#0 (copy)"
+      ]
+    },
+    "148": {
+      "op": "+",
+      "defined_out": [
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "new_state_value%0#0"
+      ]
+    },
+    "149": {
+      "op": "bytec_0 // \"totalHours\"",
+      "stack_out": [
+        "new_state_value%0#0",
+        "\"totalHours\""
+      ]
+    },
+    "150": {
+      "op": "swap",
+      "stack_out": [
+        "\"totalHours\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "151": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "152": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "153": {
+      "op": "bytec_0 // \"totalHours\"",
+      "stack_out": [
+        "0",
+        "\"totalHours\""
+      ]
+    },
+    "154": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "155": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "156": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "157": {
+      "subroutine": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.resetHours",
+      "params": {},
+      "block": "resetHours",
+      "stack_in": [],
+      "op": "bytec_0 // \"totalHours\"",
+      "defined_out": [
+        "\"totalHours\""
+      ],
+      "stack_out": [
+        "\"totalHours\""
+      ]
+    },
+    "158": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"totalHours\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"totalHours\"",
+        "0"
+      ]
+    },
+    "159": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "160": {
+      "op": "pushbytes \"Study hours reset successfully!\"",
+      "defined_out": [
+        "\"Study hours reset successfully!\""
+      ],
+      "stack_out": [
+        "\"Study hours reset successfully!\""
+      ]
+    },
+    "193": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "194": {
+      "subroutine": "smart_contracts/hello_world/contract.algo.ts::StudyTracker.getHours",
+      "params": {},
+      "block": "getHours",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "195": {
+      "op": "bytec_0 // \"totalHours\"",
+      "defined_out": [
+        "\"totalHours\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"totalHours\""
+      ]
+    },
+    "196": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "197": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "198": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
