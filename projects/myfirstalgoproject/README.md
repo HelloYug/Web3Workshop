@@ -2,6 +2,9 @@
 
 A simple and beginner-friendly decentralized application (dApp) built on **Algorand** to help students track their study hours on the blockchain.  
 
+https://lora.algokit.io/testnet/application/745512582
+![WhatsApp Image 2025-09-07 at 20 22 04_4057e74f](https://github.com/user-attachments/assets/21cd4946-7090-477d-af87-6453f9000b40)
+
 ---
 
 ## 🚀 Project Description
@@ -43,7 +46,30 @@ Contract Address: **XXX**
 ## 📂 Code (Smart Contract)
 
 ```ts
-//paste your code
+import { Contract, GlobalState, uint64 } from "@algorandfoundation/algorand-typescript";
+
+export class StudyTracker extends Contract {
+  // Global state: stores total study hours
+  totalHours = GlobalState<uint64>({ key: "totalHours", initialValue: 0 });
+
+  // Add study hours
+  addHours(hours: uint64): uint64 {
+    this.totalHours.value += hours;
+    return this.totalHours.value;
+  }
+
+  // Reset study hours
+  resetHours(): string {
+    this.totalHours.value = 0;
+    return "Study hours reset successfully!";
+  }
+
+  // Get current study hours
+  getHours(): uint64 {
+    return this.totalHours.value;
+  }
+}
+
 ````
 
 ---
